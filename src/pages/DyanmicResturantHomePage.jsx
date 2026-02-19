@@ -12,7 +12,7 @@ import SpecificMap from '../components/SpecificMap'; // Your map component
 import {
     Phone, MessageCircle, MapPin, Clock,
     Star, ShoppingBag, Info, MessageSquare,
-    ChevronLeft, Share2, Globe, Facebook, Instagram, Youtube
+    ChevronLeft, Share2, Globe, Facebook, Instagram, Youtube, Music, Music2
 } from 'lucide-react';
 
 import './DynamicRestaurant.css';
@@ -190,7 +190,7 @@ const DynamicRestaurantHomePage = () => {
                                             <div className="dr-compact-info">
                                                 <h4>{item.name}</h4>
                                                 <span className="dr-price">
-                                                    ₦{item.price ? `₦${item.price.toLocaleString()}` : 'Price on request'}
+                                                    {item.price ? `${item.price.toLocaleString()}` : 'Price on request'}
                                                 </span>
                                             </div>
                                             <button className="dr-add-btn">+</button>
@@ -266,16 +266,29 @@ const DynamicRestaurantHomePage = () => {
                         </a>
                     )}
                     {restaurant.socials?.facebook && (
-                        <div className="dr-social-row">
-                            <span className="social-icon fb"><Facebook size={16}/></span>
-                            <span>{restaurant.socials.facebook}</span>
-                        </div>
+                        <a target={'_blank'} href={`https://instagram.com/${restaurant.socials.facebook}`} >
+                            <div className="dr-social-row">
+                                <span className="social-icon fb"><Facebook size={16}/></span>
+                                <span>{restaurant.socials.facebook}</span>
+                            </div>
+                        </a>
                     )}
                     {restaurant.socials?.instagram && (
-                        <div className="dr-social-row">
-                            <span className="social-icon ig"><Instagram size={16}/></span>
-                            <span>@{restaurant.socials.instagram}</span>
-                        </div>
+                        <a target={'_blank'} href={`https://instagram.com/${restaurant.socials.instagram}`} >
+                            <div className="dr-social-row">
+                                <span className="social-icon ig"><Instagram size={16}/></span>
+                                <span>@{restaurant.socials.instagram}</span>
+                            </div>
+                        </a>
+                    )}
+                    {restaurant.socials?.tiktok && (
+
+                        <a target={'_blank'} href={`https://tiktok.com/${restaurant.socials.tiktok}`} >
+                            <div className="dr-social-row">
+                                <span className="social-icon ig"><Music2 size={16}/></span>
+                                <span>@{restaurant.socials.tiktok}</span>
+                            </div>
+                        </a>
                     )}
                 </div>
             </div>
